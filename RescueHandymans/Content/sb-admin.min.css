@@ -414,7 +414,10 @@ footer.sticky-footer.width100 {
 .card-body span {
     display: block;
 }
-
+a
+{
+    color:#0069d9;
+}
 
 .card-handy {
     padding: 15px;
@@ -514,4 +517,16 @@ span.english {
 
 .bg-blue {
     background-color: #0069d9;
+}
+
+.page-item.active .page-link {
+    background-color: #0069d9;
+    border-color: #0069d9;
+}
+
+
+.card-body .btn-default{
+    background-color: #0069d9;
+    border-color: #0062cc;
+    color: #fff;
 }
