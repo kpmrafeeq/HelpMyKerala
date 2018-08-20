@@ -1,0 +1,87 @@
+﻿@model IEnumerable<RescueHandymans.Data.HandyMan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-fw fa-toolbox"></i>
+        Helpers @Html.ActionLink("Register help", "Create")
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ModifiedOn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            Location
+                        </th>
+                   
+                        <th>
+                           Verified
+                        </th>
+                      <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.FirstName, "Details", new { id = item.HandyMans })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedOn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.District.Name) ,  @Html.DisplayFor(modelItem => item.Area)
+                            </td>   
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Verified)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.HandyMansServiceID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.HandyMansServiceID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.HandyMansServiceID })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

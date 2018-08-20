@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="As part of rebuilding Kerala, this is an initiative to connect volunteering technicians like plumbers, carpenters, mechanics, electricians etc with those who are seeking help to restore their houses.">
+    <meta name="author" content="Community">
+    <meta property="og:description" content="As part of rebuilding Kerala, this is an initiative to connect volunteering technicians like plumbers, carpenters, mechanics, electricians etc with those who are seeking help to restore their houses.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://helpmykerala.in/helpmykerala.PNG">
+    <title>Help my kerala helpmykerala.in</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-expand navbar-dark bg-blue static-top">
+        <a class="navbar-brand mr-1" href="/"><b>Help</b>My<b>Kerala</b></a>
+     
+    </nav>
+
+    <div id="wrapper">
+        
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+                <!-- /.content-wrapper -->
+            </div>
+            <!-- /.container-fluid -->
+            <!-- Sticky Footer -->
+            <footer class="sticky-footer @(Session["Logged"] != "true"? "width100" : "")">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright helpmykerala.in 2018</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- /#wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿@model RescueHandymans.Data.HandyMansRequest
+
+@{
+    ViewBag.Title = "Create";
+    var camps = ViewBag.PlaceID as List<RescueHandymans.Data.Place>;
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Create
+    </div>
+    <div class="card-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Helpers സഹായിക്കുന്നു</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.RequesterName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RequesterName, new { htmlAttributes = new { @class = "form-control", placeholder = "Requester name", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.RequesterName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone number", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control",  placeholder = "Email"} })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.HandyMansServiceID, "HandyMansServiceID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("HandyMansServiceID", null, optionLabel: "Select service", htmlAttributes: new { @class = "form-control", placeholder= "Service",required="required" })
+                        @Html.ValidationMessageFor(model => model.HandyMansServiceID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.DistrictID, "DistrictID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("DistrictID", null,optionLabel:"Select district", htmlAttributes: new { @class = "form-control district-data", required = "required" })
+                        @Html.ValidationMessageFor(model => model.DistrictID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.PlaceID, "PlaceID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        <select class="form-control place-list" id="PlaceID" name="PlaceID">
+                            <option value="" class="default">Select place</option>
+                            @foreach (var item in camps.OrderBy(x => x.Name).GroupBy(y => y.District.Name))
+                            {
+                                foreach (var place in item)
+                                {
+                                    <option value="@place.PlaceID" data-district="@place.DistrictID">@place.Name</option>
+                                }
+                            }
+                        </select>
+
+
+                        @Html.ValidationMessageFor(model => model.PlaceID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+              
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

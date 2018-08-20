@@ -1,0 +1,133 @@
+﻿@model IEnumerable<RescueHandymans.Data.HandyMan>
+@{
+    ViewBag.Title = "Search helpers";
+    var districts = ViewBag.Districts as List<RescueHandymans.Data.District>;
+    var services = ViewBag.Services as List<RescueHandymans.Data.HandyMan>;
+    
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-fw fa-toolbox"></i>
+        Search for technicians/ടെക്ക്നീഷ്യനെ തിരയുക 
+    </div>
+    <div class="card-body">
+        <div class="">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <select name="district" id="district" class="form-control district-data">
+                                <option >Select district</option>
+                                @foreach (var dist in districts)
+                                {
+                                    if (ViewBag.SelectedDistrict == dist.DistrictID)
+                                    {
+                                        <option selected="selected" value="@dist.DistrictID">@dist.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option  value="@dist.DistrictID">@dist.Name</option>
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+
+                            <select class="form-control place-list" name="service">
+                                <option selected="@(ViewBag.SelectedDistrict==0 ? "selected":"")">Select service</option>
+                                @foreach (var service in services.OrderBy(x => x.HandyMansService.Description))
+                                {
+                                    if (ViewBag.SelectedServices == service.HandyMansServiceID)
+                                    {
+                                        <option value="@service.HandyMansServiceID" data-district="@service.DistrictID" selected="selected">@service.HandyMansService.Description</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@service.HandyMansServiceID" data-district="@service.DistrictID">@service.HandyMansService.Description</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="submit" value="search" class="btn btn-primary btn-block">
+            }
+        </div>
+
+    </div>
+    @if (Model.Any())
+    {
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            Service
+                        </th>
+                        <th>
+                            Area
+                        </th>
+                        <th>
+                            Registered on
+                        </th>
+                      
+                       
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="verified">
+                                @item.FirstName @Html.DisplayFor(modelItem => item.LastName)
+                                @if (item.Verified.HasValue && item.Verified.Value)
+                                {
+                                    <i class="fas fa-fw fa-check-circle"></i>
+                                }
+                                
+                            </td>
+                         
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HandyMansService.Description)
+                            </td>
+
+                           
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.District.Name) ,  @Html.DisplayFor(modelItem => item.Area)
+                            </td>
+                          
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedOn)
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    }
+</div>

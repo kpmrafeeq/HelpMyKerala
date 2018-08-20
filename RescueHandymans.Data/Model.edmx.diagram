@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a221975a4ddc4b7d871e39e788d85671" Name="Diagram1">
+        <EntityTypeShape EntityType="RescueNeedsModel.CampInCharge" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.CampRequirement" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.Camp" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.Discussion" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.District" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.Item" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.Person" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RescueNeedsModel.Place" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="RescueNeedsModel.FK__CampInCha__Camps__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__CampInCha__Perso__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__CampRequi__Camps__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__CampRequi__ItemI__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__Camps__DistrictI__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__Camps__PlaceID__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__Discussio__Camps__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="RescueNeedsModel.FK__Places__District__20C1E124" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RescueNeedsModel.HandyMan" Width="1.5" PointX="10.25" PointY="1.875" />
+        <EntityTypeShape EntityType="RescueNeedsModel.HandyMansRequest" Width="1.5" PointX="10.25" PointY="7" />
+        <EntityTypeShape EntityType="RescueNeedsModel.HandyMansService" Width="1.5" PointX="8" PointY="0.75" />
+        <AssociationConnector Association="RescueNeedsModel.FK__HandyMans__Distr__5165187F" />
+        <AssociationConnector Association="RescueNeedsModel.FK__HandyMans__Distr__571DF1D5" />
+        <AssociationConnector Association="RescueNeedsModel.FK__HandyMans__Handy__534D60F1" />
+        <AssociationConnector Association="RescueNeedsModel.FK__HandyMans__Place__52593CB8" />
+        <AssociationConnector Association="RescueNeedsModel.FK__HandyMans__Handy__59063A47" />
+        <AssociationConnector Association="RescueNeedsModel.FK__HandyMans__Place__5812160E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,93 @@
+﻿@model RescueHandymans.Data.HandyMan
+
+@{
+    ViewBag.Title = "Create";
+
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        <span class="header">Register service</span>
+    </div>
+    <div class="card-body">
+        @if (ViewBag.Satus != null)
+        {
+            <h4>You have registered the service</h4>
+        }
+        else
+        {
+            using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First name", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last name" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone number", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.DistrictID, "DistrictID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("DistrictID", null, optionLabel: "Select district", htmlAttributes: new { @class = "form-control ", placeholder = "District", required = "required" })
+                        @Html.ValidationMessageFor(model => model.DistrictID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", placeholder = "Area", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.HandyMansServiceID, "HandyMansServiceID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("HandyMansServiceID", null, optionLabel: "Select service", htmlAttributes: new { @class = "form-control", required = "required" })
+                        @Html.ValidationMessageFor(model => model.HandyMansServiceID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+              
+
+              
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+            }
+        }
+        <div>
+            <a href="/">Back</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
