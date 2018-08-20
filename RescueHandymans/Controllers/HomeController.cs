@@ -23,7 +23,7 @@ namespace RescueHandymans.Controllers
         {
             ViewBag.SelectedDistrict = 0;
             ViewBag.SelectedServices = 0;
-
+            ViewBag.Search = false;
             ViewBag.Districts = db.Districts.ToList();
             ViewBag.Services = db.HandyMans.ToList();
             return View(new List<HandyMan>());
@@ -39,6 +39,7 @@ namespace RescueHandymans.Controllers
             ViewBag.SelectedServices = 0;
             int districtId;
             int serviceId;
+            ViewBag.Search = true;
             if (int.TryParse(district, out districtId))
             {
                 ViewBag.SelectedDistrict = districtId;
