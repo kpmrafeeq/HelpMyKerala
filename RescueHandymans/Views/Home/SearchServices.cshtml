@@ -1,9 +1,18 @@
 ﻿@model IEnumerable<RescueHandymans.Data.HandyMan>
 @{
-    ViewBag.Title = "Search helpers";
+
     var districts = ViewBag.Districts as List<RescueHandymans.Data.District>;
     var services = ViewBag.Services as List<RescueHandymans.Data.HandyMansService>;
-    
+    RescueHandymans.Data.District selectedDist = null;
+    if(ViewBag.SelectedDistrict!=null)
+    {
+        selectedDist = districts.FirstOrDefault(x => x.DistrictID == ViewBag.SelectedDistrict);
+        if (selectedDist != null)
+        {
+            ViewBag.Title = selectedDist.Name;
+        }
+    }
+
 }
 
 <div class="card mb-3">
