@@ -94,6 +94,7 @@ namespace RescueHandymans.Controllers
         {
             if (ModelState.IsValid)
             {
+                handyMan.CreatedOn = DateTime.Now;
                 handyMan.ModifiedOn = DateTime.Now;
                 db.Entry(handyMan).State = EntityState.Modified;
                 db.SaveChanges();
