@@ -51,7 +51,7 @@ namespace RescueHandymans.Controllers
                 handymans = handymans.Where(x => x.HandyMansServiceID == serviceId);
             }
 
-            return View(handymans.ToList());
+            return View(handymans.OrderByDescending(x=>x.CreatedOn).ToList());
         }
 
 

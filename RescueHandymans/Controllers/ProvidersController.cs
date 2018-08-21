@@ -18,7 +18,7 @@ namespace RescueHandymans.Controllers
         public ActionResult Data()
         {
             var handyMans = db.HandyMans.Include(h => h.District).Include(h => h.HandyMansService).Include(h => h.Place);
-            return View("Index",handyMans.ToList());
+            return View("Index",handyMans.OrderByDescending(x => x.CreatedOn).ToList());
         }
 
         // GET: Providers/Details/5
