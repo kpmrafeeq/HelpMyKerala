@@ -25,7 +25,7 @@ namespace RescueHandymans.Controllers
             ViewBag.SelectedServices = 0;
             ViewBag.Search = false;
             ViewBag.Districts = db.Districts.ToList();
-            ViewBag.Services = db.HandyMans.ToList();
+            ViewBag.Services = db.HandyMansServices.ToList();
             return View(new List<HandyMan>());
         }
 
@@ -34,7 +34,7 @@ namespace RescueHandymans.Controllers
         {
             var handymans = db.HandyMans.AsEnumerable();
             ViewBag.Districts = db.Districts.ToList();
-            ViewBag.Services = db.HandyMans.ToList();
+            ViewBag.Services = db.HandyMansServices.ToList();
             ViewBag.SelectedDistrict = 0;
             ViewBag.SelectedServices = 0;
             int districtId;

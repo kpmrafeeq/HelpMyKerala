@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Search helpers";
     var districts = ViewBag.Districts as List<RescueHandymans.Data.District>;
-    var services = ViewBag.Services as List<RescueHandymans.Data.HandyMan>;
+    var services = ViewBag.Services as List<RescueHandymans.Data.HandyMansService>;
     
 }
 
@@ -21,7 +21,7 @@
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-label-group">
-                            <select name="district" id="district" class="form-control district-data">
+                            <select name="district" id="district" class="form-control">
                                 <option >Select district</option>
                                 @foreach (var dist in districts)
                                 {
@@ -43,15 +43,15 @@
 
                             <select class="form-control place-list" name="service">
                                 <option selected="@(ViewBag.SelectedDistrict==0 ? "selected":"")">Select service</option>
-                                @foreach (var service in services.OrderBy(x => x.HandyMansService.Description))
+                                @foreach (var service in services.OrderBy(x => x.Description))
                                 {
                                     if (ViewBag.SelectedServices == service.HandyMansServiceID)
                                     {
-                                        <option value="@service.HandyMansServiceID" data-district="@service.DistrictID" selected="selected">@service.HandyMansService.Description</option>
+                                        <option value="@service.HandyMansServiceID" selected="selected">@service.Description</option>
                                     }
                                     else
                                     {
-                                        <option value="@service.HandyMansServiceID" data-district="@service.DistrictID">@service.HandyMansService.Description</option>
+                                        <option value="@service.HandyMansServiceID">@service.Description</option>
                                     }
                                 }
                             </select>

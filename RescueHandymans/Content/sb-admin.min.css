@@ -530,3 +530,14 @@ span.english {
     border-color: #0062cc;
     color: #fff;
 }
+@media (max-width: 600px) {
+   .list-content p
+   {
+	   width: 100%;
+	   font-size: 11px;
+   }
+   .list-content
+   {
+	   padding-top:0px;
+   }
+}
