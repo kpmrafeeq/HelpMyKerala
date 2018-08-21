@@ -129,7 +129,7 @@ namespace RescueHandymans.Controllers
             HandyMan handyMan = db.HandyMans.Find(id);
             db.HandyMans.Remove(handyMan);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("data");
         }
 
         protected override void Dispose(bool disposing)
