@@ -54,6 +54,11 @@ namespace RescueHandymans.Controllers
             return View(handymans.OrderByDescending(x=>x.Verified  == true).ThenByDescending(x=>x.CreatedOn).ToList());
         }
 
+        [HttpGet]
+        public ActionResult Disclaimer()
+        {
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {

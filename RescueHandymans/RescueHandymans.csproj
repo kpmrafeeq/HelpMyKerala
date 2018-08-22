@@ -1655,6 +1655,7 @@
     <Content Include="Views\ServiceRequest\Edit.cshtml" />
     <Content Include="Views\ServiceRequest\Index.cshtml" />
     <Content Include="Views\Home\SearchServices.cshtml" />
+    <Content Include="Views\Home\Disclaimer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
